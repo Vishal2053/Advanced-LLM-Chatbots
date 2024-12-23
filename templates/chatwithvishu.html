@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with Vishu</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Chat with Vishu</h2>
+    <form method="POST">
+        <label for="user_input">Enter your message:</label><br>
+        <textarea id="user_input" name="user_input" rows="4" cols="50" placeholder="Type your message here..."></textarea><br><br>
+        <button type="submit">Send</button>
+    </form>
+
+
+    {% if langflow_response %}
+    <div>
+        <h3>BOT Response:</h3>
+        <pre>{{ langflow_response | tojson(indent=2) }}</pre>
+    </div>
+    {% endif %}
+</body>
+</html>

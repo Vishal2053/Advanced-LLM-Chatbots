@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome, {{ session['user_name'] }}!</h1>
+        <div class="buttons">
+            <a href="{{ url_for('bhakti') }}" class="btn btn-primary">Bhakti Chatbot</a>
+            <a href="{{ url_for('chat_with_vishu') }}" class="btn btn-primary">Chat with Vishu</a>
+            <a href="{{ url_for('chat_with_pdf') }}" class="btn btn-primary">Chat with PDF</a>
+        </div>
+        <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
+    </div>
+</body>
+</html>

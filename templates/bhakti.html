@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhakti Chatbot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Chat Container Styling */
+        .chat-container {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            width: 90%; /* Responsive to any screen size */
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            height: 85vh;
+        }
+
+        /* Header Section */
+        .chat-header {
+            background-color: #007bff;
+            color: white;
+            padding: 25px;
+            text-align: center;
+            font-size: 1.8em;
+            font-weight: bold;
+            border-radius: 15px 15px 0 0;
+        }
+
+        /* Messages Section */
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            border-bottom: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+
+        .message {
+            margin: 12px 0;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 1em;
+            line-height: 1.5;
+            max-width: 75%;
+        }
+
+        .user-message {
+            background-color: #d1ecf1;
+            align-self: flex-end;
+            border: 1px solid #bee5eb;
+        }
+
+        .bot-message {
+            background-color: #f8f9fa;
+            align-self: flex-start;
+            border: 1px solid #ced4da;
+        }
+
+        /* Chat Input Section */
+        .chat-input {
+            display: flex;
+            padding: 20px;
+            background-color: #ffffff;
+            border-top: 1px solid #ddd;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            font-size: 1em;
+            margin-right: 10px;
+        }
+
+        .chat-input button {
+            padding: 12px 25px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .chat-input button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Scrollbar Customization */
+        .chat-messages::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb {
+            background-color: #007bff;
+            border-radius: 4px;
+        }
+
+        .chat-messages::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <!-- Chat Header -->
+        <div class="chat-header">
+            Bhakti Chatbot
+        </div>
+
+        <!-- Chat Messages Section -->
+        <div class="chat-messages" id="response">
+            {% if response %}
+                <div class="message user-message">You: {{ message }}</div>
+                <div class="message bot-message">Bot: {{ response }}</div>
+            {% else %}
+                <div class="message bot-message">Welcome to Bhakti Chatbot! Type your message below to get started.</div>
+            {% endif %}
+        </div>
+
+        <!-- Chat Input Form -->
+        <form action="/bhakti" method="POST" class="chat-input">
+            <input 
+                type="text" 
+                id="message" 
+                name="message" 
+                placeholder="Type your message here..." 
+                required
+                aria-label="Enter your message">
+            <button type="submit">Send</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container text-center mt-5">
+        <h1>Welcome to Your Dashboard</h1>
+        <p class="lead">Choose an option to explore further:</p>
+
+        <!-- Button Group -->
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#bhaktiModal">
+                Bhakti Chatbot
+            </button>
+            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#chatWithVishuModal">
+                Chat with Vishu
+            </button>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#chatWithPdfModal">
+                Chat with PDF
+            </button>
+        </div>
+
+        <!-- Modal for Bhakti Chatbot -->
+        <div class="modal fade" id="bhaktiModal" tabindex="-1" role="dialog" aria-labelledby="bhaktiModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="bhaktiModalLabel">Bhakti Chatbot</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p><strong>Created by Vishal More, Data Scientist</strong></p>
+                        <p>This is a simple chatbot designed to answer your basic questions and assist with Bhakti. Ask anything, and it will provide relevant information to guide you in your journey.</p>
+                        <h4>Features:</h4>
+                        <ul>
+                            <li>Answers basic questions.</li>
+                            <li>Helps guide you in small task.</li>
+                            <li>Simple and easy-to-use interface for everyone.</li>
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <a href="{{ url_for('bhakti') }}" class="btn btn-primary">Start Chat</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal for Chat with Vishu -->
+        <div class="modal fade" id="chatWithVishuModal" tabindex="-1" role="dialog" aria-labelledby="chatWithVishuModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="chatWithVishuModalLabel">Chat with Vishu</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p><strong>Created by Vishal More, Data Scientist</strong></p>
+                        <p>Chat with Vishu to discuss data science concepts, AI, machine learning, or anything technical related to the field. Vishu is here to help you explore and understand topics more deeply!</p>
+                        <h4>Features:</h4>
+                        <ul>
+                            <li>Discuss technical topics like data science, machine learning, and AI.</li>
+                            <li>Get help with understanding complex concepts or solving problems.</li>
+                            <li>Interactive chatbot that adapts to your level of understanding.</li>
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <a href="{{ url_for('chatwithvishu') }}" class="btn btn-primary">Start Chat</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal for Chat with PDF -->
+        <div class="modal fade" id="chatWithPdfModal" tabindex="-1" role="dialog" aria-labelledby="chatWithPdfModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="chatWithPdfModalLabel">Chat with PDF</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p><strong>Created by Vishal More, Data Scientist</strong></p>
+                        <p>This feature allows you to upload a PDF and interact with its content. You can ask specific questions based on the text in the PDF, and the chatbot will provide the answers by extracting information from the document.</p>
+                        <h4>Features:</h4>
+                        <ul>
+                            <li>Upload and interact with PDFs.</li>
+                            <li>Ask questions based on the document's content.</li>
+                            <li>Smart extraction of relevant answers from the uploaded PDF.</li>
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <a href="{{ url_for('chatwithpdf') }}" class="btn btn-primary">Start Chat</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
